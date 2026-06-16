@@ -1,6 +1,10 @@
-# AtCoder Analytics
+  # AtCoder Analytics
 
-This is a small Chrome extension that injects an analytics section **directly into AtCoder user profile pages**:
+This is the public repo for the **AtCoder Analytics** Chrome extension.
+
+- Chrome Web Store: https://chromewebstore.google.com/detail/atcoder-analytics/bmfjngielhkffoekjpdgpedpmelhabhm
+
+The extension injects an analytics section **directly into AtCoder user profile pages**:
 
 - Solved-by-difficulty histogram (estimated difficulty via AtCoder Problems)
 - Unsolved list (attempted but not AC)
