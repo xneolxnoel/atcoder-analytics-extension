@@ -1,14 +1,17 @@
-  # AtCoder Analytics
+# AtCoder Analytics
 
 This is the public repo for the **AtCoder Analytics** Chrome extension.
 
 - Chrome Web Store: https://chromewebstore.google.com/detail/atcoder-analytics/bmfjngielhkffoekjpdgpedpmelhabhm
+- GitHub: https://github.com/xneolxnoel/atcoder-analytics-extension
 
-The extension injects an analytics section **directly into AtCoder user profile pages**:
+AtCoder Analytics enhances AtCoder user profile pages with additional statistics:
 
-- Solved-by-difficulty histogram (estimated difficulty via AtCoder Problems)
-- Unsolved list (attempted but not AC)
-- “Tags solved” (approximated by contest series like ABC/ARC/AGC/AHC)
+- Solved-by-difficulty histogram (estimated difficulty)
+- Solved breakdown by contest series (ABC/ARC/AGC/AHC/etc.)
+- Unsolved list (attempted problems without AC), with links
+
+Data is fetched from public endpoints and processed locally in your browser. The extension stores a small local cache to reduce repeated requests.
 
 ## Install (unpacked)
 
