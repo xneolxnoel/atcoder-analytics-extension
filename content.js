@@ -83,6 +83,22 @@
     return new Promise((resolve) => chrome.storage.local.set(obj, resolve));
   }
 
+  async function fetchJson(url) {
+    return new Promise((resolve, reject) => {
+      chrome.runtime.sendMessage({ type: "acAnalytics.fetchJson", url }, (response) => {
+        if (chrome.runtime.lastError) {
+          reject(new Error(chrome.runtime.lastError.message));
+          return;
+        }
+        if (!response?.ok) {
+          reject(new Error(response?.error || "Failed to fetch"));
+          return;
+        }
+        resolve(response.data);
+      });
+    });
+  }
+
   function nowMs() {
     return Date.now();
   }
@@ -441,9 +457,7 @@
       return cached.data;
     }
 
-    const res = await fetch(API.models, { credentials: "omit" });
-    if (!res.ok) throw new Error(`Failed to load problem models: HTTP ${res.status}`);
-    const data = await res.json();
+    const data = await fetchJson(API.models);
 
     // Store raw object; it's large but avoids re-fetching.
     await storageSet({
@@ -487,9 +501,7 @@
       rounds += 1;
       onProgress?.({ phase: "fetch", rounds, cursor, count: all.length });
 
-      const res = await fetch(API.userSubmissions(userId, cursor), { credentials: "omit" });
-      if (!res.ok) throw new Error(`Failed to load submissions: HTTP ${res.status}`);
-      const batch = await res.json();
+      const batch = await fetchJson(API.userSubmissions(userId, cursor));
 
       if (!Array.isArray(batch) || batch.length === 0) break;
 

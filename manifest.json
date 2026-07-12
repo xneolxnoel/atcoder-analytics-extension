@@ -6,6 +6,9 @@
   "action": {
     "default_title": "AtCoder Analytics"
   },
+  "background": {
+    "service_worker": "background.js"
+  },
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
