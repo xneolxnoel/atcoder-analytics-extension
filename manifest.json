@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AtCoder Analytics",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Adds graphs and an unsolved list to AtCoder user profile pages (powered by AtCoder Problems API).",
   "action": {
     "default_title": "AtCoder Analytics"
